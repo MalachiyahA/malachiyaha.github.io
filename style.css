@@ -70,7 +70,6 @@ section > * {
 }
 
 #hero h1 {
-    text-align:center
     font-size: 8rem;
     font-family: 'Urbanist', sans-serif;
     font-weight: 900;
@@ -83,6 +82,7 @@ section > * {
     z-index: 1;
     line-height: 1.1;
     padding-bottom: 0.1em;
+    text-align:center
 }
 
 #hero p {
