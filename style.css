@@ -70,6 +70,7 @@ section > * {
 }
 
 #hero h1 {
+    text-align:center
     font-size: 8rem;
     font-family: 'Urbanist', sans-serif;
     font-weight: 900;
