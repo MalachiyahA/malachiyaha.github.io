@@ -1,0 +1,315 @@
+@font-face {
+    font-family: 'Cal Sans';
+    src: url('fonts/CalSans-SemiBold.woff2') format('woff2');
+}
+/* === GLOBAL STYLES === */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    font-family: 'Cal Sans', sans-serif;
+    color: #0f0e0d;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+/* === TEXTURE SETUP === */
+section {
+    position: relative;
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-repeat: repeat;
+    background-size: 1000px 1000px;
+    opacity: 0;
+    z-index: 0;
+}
+
+section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* === HERO SECTION === */
+#hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f0e0d;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.45) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+#hero::after {
+    background-image: url('images/textures/hessian_380_mask_1k.png');
+    opacity: 0.08;
+}
+
+#hero h1 {
+    font-size: 8rem;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
+    background: linear-gradient(180deg, #ff8c00 0%, #ffd699 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    line-height: 1.1;
+    padding-bottom: 0.1em;
+}
+
+#hero p {
+    color: #ffd699;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #ff8c00;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #cc6f00;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+/* === NAVIGATION === */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(255, 140, 0, 0.1);
+    position: sticky;
+    top: 0;
+}
+
+.nav-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff8c00;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1a1a2e;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff8c00;
+}
+
+/* === SHARED SECTION STYLES === */
+section {
+    padding: 6rem 3rem;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #ff8c00;
+    margin-bottom: 0.5rem;
+}
+
+.section-sub {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+/* === REEL SECTION === */
+#reel {
+    background-color: #ffffff;
+}
+
+.reel-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.reel-placeholder {
+    background-color: #1a1a2e;
+    border-radius: 8px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff8c00;
+    font-size: 1.5rem;
+}
+
+/* === WORK GRID === */
+#work {
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+}
+
+.work-item {
+    grid-column: span 3;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1a1a2e;
+    transition: transform 0.3s;
+}
+
+.work-item.triptych {
+    grid-column: span 2;
+}
+
+.work-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* === ABOUT SECTION === */
+#about {
+    background-color: #ffffff;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    max-width: 700px;
+    margin-bottom: 1rem;
+}
+
+/* === CONTACT SECTION === */
+#contact {
+    background-color: #ff8c00;
+    text-align: center;
+}
+
+#contact h2 {
+    color: #ffffff;
+}
+
+#contact .section-sub {
+    color: rgba(255,255,255,0.8);
+}
+
+.contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.btn-outline:hover {
+    background-color: #ffffff;
+    color: #ff8c00;
+}
+
+#contact::after {
+    background-image: url('images/textures/hessian_380_mask_1k.png');
+    opacity: 0.1;
+}
+
+/* === POLISH === */
+
+/* Smooth scroll for the whole page */
+* {
+    box-sizing: border-box;
+}
+
+/* Add a subtle hover effect to nav links */
+.nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff8c00;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Make hero section taller and more impactful */
+#hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Subtle section dividers */
+section {
+    border-top: 1px solid rgba(255, 140, 0, 0.1);
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0f0e0d;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+}
