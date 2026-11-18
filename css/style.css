@@ -1,0 +1,105 @@
+/* ================================================================
+   1. COLORS & FONTS  <- change the whole look from here
+   ================================================================ */
+:root{--orange:#FF5E1A;--gray:#D9D9D9;--black:#0A0A0A;--white:#fff;
+--display:"Archivo",sans-serif;--body:"Space Grotesk",sans-serif;
+--pad:clamp(20px,4.5vw,68px);}
+
+/* ================================================================
+   2. BASE STYLES
+   ================================================================ */
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--body);background:var(--gray);color:var(--black);line-height:1.5}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:900;font-stretch:125%;text-transform:uppercase;line-height:1.05}
+:focus-visible{outline:3px solid var(--black);outline-offset:3px}
+
+/* ================================================================
+   3. HEADER / NAV
+   ================================================================ */
+.site-header{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:28px var(--pad)}
+.page-home .site-header{color:var(--white)}
+.logo{font:900 clamp(.9rem,2vw,1.5rem)/1.1 var(--display);font-stretch:125%;text-transform:uppercase;text-decoration:none;max-width:70%}
+.nav{display:flex;gap:32px}
+.nav a{text-decoration:none;font-weight:500}
+.nav a.active{text-decoration:underline;text-underline-offset:6px}
+.menu-btn{display:none;width:40px;padding:0;background:none;border:0;color:inherit;cursor:pointer}
+.menu-btn::before,.menu-btn::after{content:"";display:block;height:2px;margin:8px 0;background:currentColor}
+@media(max-width:700px){
+ .menu-btn{display:block;position:relative;z-index:2}
+ .menu-btn[aria-expanded="true"]{color:#fff}
+ .site-header .nav{display:none;position:fixed;inset:0;z-index:1;flex-direction:column;justify-content:center;align-items:center;gap:28px;padding:var(--pad);background:#0A0A0A;color:#fff}
+ .site-header .nav.open{display:flex}
+ .site-header .nav a{font:900 2rem/1.1 var(--display);font-stretch:125%;text-transform:uppercase}}
+
+/* ================================================================
+   4. HERO REEL (home page top)
+   ================================================================ */
+.hero{padding:150px var(--pad) 70px;text-align:center;
+background:linear-gradient(to bottom,transparent 65%,var(--gray)),radial-gradient(ellipse at 75% 25%,#ff8a50,transparent 55%),radial-gradient(ellipse at 15% 70%,#ffb48f,transparent 60%),var(--orange)}
+.reel{max-width:1000px;margin:0 auto;aspect-ratio:16/9;background:#000;display:grid;place-items:center;color:#fff}
+.reel iframe{width:100%;height:100%;border:0}
+.tagline{max-width:640px;margin:40px auto 28px;font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:500}
+.btn{display:inline-block;padding:18px 44px;border-radius:999px;background:var(--orange);color:var(--white);font-weight:700;text-transform:uppercase;text-decoration:none}
+
+/* ================================================================
+   5. MARQUEE (scrolling render strip)
+   ================================================================ */
+.marquee{overflow:hidden;padding:30px 0}
+.track{display:flex;gap:16px;width:max-content;animation:scroll 45s linear infinite}
+.track img{height:clamp(120px,18vw,220px);width:auto;background:#c4c4c4}
+@keyframes scroll{to{transform:translateX(calc(-50% - 8px))}}
+@media(prefers-reduced-motion:reduce){.track{animation:none}}
+
+/* ================================================================
+   6. ABOUT + RESUME
+   ================================================================ */
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding:60px var(--pad) 90px}
+.about h2{font:500 1.5rem var(--body);text-transform:none;margin-bottom:20px}
+.about p{max-width:62ch;margin-bottom:1em}
+.about img{width:100%;max-width:380px;aspect-ratio:1;object-fit:cover;border-radius:18%/14%;margin:auto;background:#c4c4c4}
+.resume{display:inline-block;margin-top:8px;padding:10px 22px;border:2px solid var(--black);border-radius:999px;font-size:.9rem;font-weight:700;text-decoration:none}
+@media(max-width:800px){.about{grid-template-columns:1fr}.about img{order:2}}
+
+/* ================================================================
+   7. PAGE TITLE + GALLERY GRID (portfolio hub and section pages)
+   ================================================================ */
+.page-inner{padding:150px var(--pad) 90px}
+.page-title{font-size:clamp(2rem,5vw,4rem);margin-bottom:56px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:40px 28px;align-items:start}
+.piece{text-decoration:none}
+.piece img{width:100%;height:auto;min-height:160px;background:#c4c4c4}
+.piece h3{font-size:1.1rem;margin:16px 0 6px}
+.piece p{font-size:.95rem;max-width:40ch;margin-top:14px}
+.hub .piece img{aspect-ratio:1;object-fit:cover}
+.hub .piece h3{font-size:1.4rem}
+
+/* ================================================================
+   8. FOOTER / CONTACT
+   ================================================================ */
+.site-footer{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:20px;padding:40px var(--pad) 70px;background:var(--orange);color:var(--white);font-weight:700}
+.site-footer a{text-decoration:none}
+.in-icon{display:grid;place-items:center;width:28px;height:28px;border-radius:6px;background:var(--white);color:var(--orange);font-size:.85rem;font-weight:900}
+
+/* ================================================================
+   9. LIGHTBOX (full-screen viewer for each piece)
+   ================================================================ */
+.open{display:block;width:100%;padding:0;border:0;background:none;color:inherit;cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(10,10,10,.94);color:#fff}
+.lb[hidden]{display:none}
+.lb-stage{display:grid;place-items:center}
+.lb iframe{border:0}
+.lb img{max-width:92vw;max-height:78vh;object-fit:contain}
+.lb-cap{padding:0 var(--pad);font-size:.95rem;text-align:center}
+.lb button{position:absolute;padding:12px;background:none;border:0;color:#fff;font-size:2.4rem;line-height:1;cursor:pointer}
+.lb-x{top:12px;right:16px}.lb-p{left:8px;top:50%}.lb-n{right:8px;top:50%}
+.lb.single .lb-p,.lb.single .lb-n{display:none}
+
+/* ===== CLICKABLE CARD CUE: magnifier icon (always visible) + zoom on hover ===== */
+.open{position:relative;overflow:hidden}
+.open img{transition:transform .5s ease}
+.open::after{content:"";position:absolute;right:10px;bottom:10px;width:36px;height:36px;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.35);transition:transform .3s ease;background:var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M15.5 15.5L21 21M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center/20px no-repeat}
+@media(hover:hover){.open:hover img{transform:scale(1.04)}.open:hover::after{transform:scale(1.1)}.hub .piece:hover h3{text-decoration:underline;text-underline-offset:6px}}
+.open:focus-visible img{transform:scale(1.04)}
+@media(prefers-reduced-motion:reduce){.open img,.open::after{transition:none}.open:hover img,.open:focus-visible img{transform:none}}
