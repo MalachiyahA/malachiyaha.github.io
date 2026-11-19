@@ -38,7 +38,7 @@ h1,h2,h3{font-family:var(--display);font-weight:900;font-stretch:125%;text-trans
    ================================================================ */
 .hero{padding:150px var(--pad) 70px;text-align:center;
 background:linear-gradient(to bottom,transparent 65%,var(--gray)),radial-gradient(ellipse at 75% 25%,#ff8a50,transparent 55%),radial-gradient(ellipse at 15% 70%,#ffb48f,transparent 60%),var(--orange)}
-.reel{max-width:1000px;margin:0 auto;aspect-ratio:16/9;background:#000;display:grid;place-items:center;color:#fff}
+.reel{max-width:1000px;margin:0 auto;aspect-ratio:16/9;background:#000;display:grid;place-items:center;color:#fff;border-radius:2px;box-shadow:0 0 0 10px var(--black),0 24px 60px rgba(0,0,0,.3)}
 .reel iframe{width:100%;height:100%;border:0}
 .tagline{max-width:640px;margin:40px auto 28px;font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:500}
 .btn{display:inline-block;padding:18px 44px;border-radius:999px;background:var(--orange);color:var(--white);font-weight:700;text-transform:uppercase;text-decoration:none}
@@ -48,7 +48,7 @@ background:linear-gradient(to bottom,transparent 65%,var(--gray)),radial-gradien
    ================================================================ */
 .marquee{overflow:hidden;padding:30px 0}
 .track{display:flex;gap:16px;width:max-content;animation:scroll 45s linear infinite}
-.track img{height:clamp(120px,18vw,220px);width:auto;background:#c4c4c4}
+.track img{height:clamp(120px,18vw,220px);width:auto}
 @keyframes scroll{to{transform:translateX(calc(-50% - 8px))}}
 @media(prefers-reduced-motion:reduce){.track{animation:none}}
 
@@ -65,10 +65,13 @@ background:linear-gradient(to bottom,transparent 65%,var(--gray)),radial-gradien
 /* ================================================================
    7. PAGE TITLE + GALLERY GRID (portfolio hub and section pages)
    ================================================================ */
-.page-inner{padding:150px var(--pad) 90px}
-.page-title{font-size:clamp(2rem,5vw,4rem);margin-bottom:56px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:40px 28px;align-items:start}
-.piece{text-decoration:none}
+.page-inner{max-width:1500px;margin:0 auto;padding:150px var(--pad) 90px}
+.page-title{font-size:clamp(2rem,5vw,4rem);margin-bottom:56px;text-align:center}
+.grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:40px 28px}
+.piece{flex:0 0 100%;min-width:0;text-decoration:none}
+@media(min-width:600px){.piece{flex-basis:calc((100% - 28px)/2)}}
+@media(min-width:1000px){.piece{flex-basis:calc((100% - 56px)/3)}.hub .piece{flex-basis:calc((100% - 28px)/2)}}
+.hub{max-width:1000px;margin:0 auto}
 .piece img{width:100%;height:auto;min-height:160px;background:#c4c4c4}
 .piece h3{font-size:1.1rem;margin:16px 0 6px}
 .piece p{font-size:.95rem;max-width:40ch;margin-top:14px}
