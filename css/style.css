@@ -74,7 +74,9 @@ background:linear-gradient(to bottom,transparent 65%,var(--gray)),radial-gradien
 .hub{max-width:1000px;margin:0 auto}
 .piece img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center;background:#c4c4c4}
 /* FOCUS POINT for tall posters cropped into the 16:9 card (second number: 0% = top of poster, 100% = bottom) */
-.piece img[src*="S2026_FINAL"],.piece img[src*="S2025_FINAL"]{object-position:50% 15%}
+.piece img[src*="S2026_FINAL"],.piece img[src*="S2025_FINAL"]{object-position:50% 50%}
+/* Happy Demon cover: 0% = top of the image (head and horns), 100% = bottom */
+.piece img[src*="StandingDemonRendered"]{object-position:50% 0%}
 .piece h3{font-size:1.1rem;margin:16px 0 6px}
 .piece p{font-size:.95rem;max-width:40ch;margin-top:14px}
 .hub .piece img{aspect-ratio:1;object-fit:cover}
