@@ -72,7 +72,9 @@ background:linear-gradient(to bottom,transparent 65%,var(--gray)),radial-gradien
 @media(min-width:600px){.piece{flex-basis:calc((100% - 28px)/2)}}
 @media(min-width:1000px){.piece{flex-basis:calc((100% - 56px)/3)}.hub .piece{flex-basis:calc((100% - 28px)/2)}}
 .hub{max-width:1000px;margin:0 auto}
-.piece img{width:100%;height:auto;min-height:160px;background:#c4c4c4}
+.piece img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center;background:#c4c4c4}
+/* FOCUS POINT for tall posters cropped into the 16:9 card (second number: 0% = top of poster, 100% = bottom) */
+.piece img[src*="S2026_FINAL"],.piece img[src*="S2025_FINAL"]{object-position:50% 15%}
 .piece h3{font-size:1.1rem;margin:16px 0 6px}
 .piece p{font-size:.95rem;max-width:40ch;margin-top:14px}
 .hub .piece img{aspect-ratio:1;object-fit:cover}
